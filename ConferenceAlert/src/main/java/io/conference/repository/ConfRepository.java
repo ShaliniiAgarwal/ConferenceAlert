@@ -7,7 +7,7 @@ import java.util.List;
 @Repository
 public interface ConfRepository extends JpaRepository<Conference,Integer>{
 	
-	  @Query(value="SELECT DISTINCT topic FROM confinfo ORDER BY topic",nativeQuery=true)
+	  @Query(value="SELECT * FROM conference.confinfo group by topic",nativeQuery=true)
 	  List<Conference> findDistinctTopic();
 	  @Query(value="SELECT * FROM conference.confinfo group by city",nativeQuery=true)
 	  List<Conference> findDistinctCity();
